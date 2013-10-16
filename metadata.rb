@@ -12,6 +12,20 @@ recipe "java::oracle", "Installs the Oracle flavor of Java"
 recipe "java::oracle_i386", "Installs the 32-bit jvm without setting it as the default"
 recipe "java::oracle_rpm", "Installs the Oracle RPM flavor of Java"
 
+attribute "java/jdk_version",
+  :display_name => "Java Version",
+  :description => "The version to install",
+  :recipes => [ 
+      "java::oracle" 
+  ]
+  
+attribute "java/oracle/accept_oracle_download_terms",
+  :display_name => "Oracle License Override",
+  :description => "Set to true to allow Oracle JDK to be installed and accept the license",
+  :recipes => [ 
+      "java::oracle" 
+  ]  
+
 %w{
     debian
     ubuntu
